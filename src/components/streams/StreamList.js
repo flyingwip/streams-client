@@ -36,14 +36,16 @@ class StreamList extends React.Component {
   }
 
   renderList = (list) => {
-    return list.map((item) => {
+    return list.map((stream) => {
       return (
-        <div className="item" key={item.id}>
-          {this.renderAdmin(item)}
+        <div className="item" key={stream.id}>
+          {this.renderAdmin(stream)}
           <i className="large middle aligned icon camera" />
           <div className="content">
-            {item.id} - {item.title}
-            <div className="description">{item.description}</div>
+            <Link to={`/streams/${stream.id}`} className="header">
+              {stream.title}
+            </Link>
+            <div className="description">{stream.description}</div>
           </div>
         </div>
       )
